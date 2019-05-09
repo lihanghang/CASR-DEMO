@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx" class="no-js">
+<html lang="ZH" class="no-js">
 
 <head>
 	<!-- Mobile Specific Meta -->
@@ -9,9 +9,9 @@
 	<!-- Author Meta -->
 	<meta name="author" content="codepixer">
 	<!-- Meta Description -->
-	<meta name="description" content="">
+	<meta name="description" content="中文语音识别演示系统">
 	<!-- Meta Keyword -->
-	<meta name="keywords" content="">
+	<meta name="keywords" content="语音识别，演示系统">
 	<!-- meta character set -->
 	<meta charset="UTF-8">
 	<!-- Site Title -->
@@ -20,13 +20,13 @@
 	<!--
 			Google Font
 			============================================= -->
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,500,600" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500i" rel="stylesheet">
+<!-- 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,500,600" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500i" rel="stylesheet"> -->
 
 	<!--
 			CSS
 			============================================= -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css">
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css"> -->
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/linearicons.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
@@ -186,7 +186,7 @@
 						<h4>系统性能</h4>
 						<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".5s">
 							<p>
-								正在训练中……
+								支持纯中文与简单英文识别，且支持断句。准确率高达90%以上！
 							</p>
 						</div>
 					</div>
@@ -285,7 +285,7 @@ Copyright &copy; 2019.CCIP Lab All rights reserved.<a target="_blank" href="#"><
 	<!-- ####################### End Scroll to Top Area ####################### -->
 
 	<script src="../static/js/vendor/jquery-2.2.4.min.js"></script>
-	<script src="../static/js/popper.min.js"></script>
+	<!-- <script src="../static/js/popper.min.js"></script> -->
 	<script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}"></script>
 	<!---<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>--->
 	<script src="../static/js/easing.min.js"></script>
@@ -320,6 +320,8 @@ Copyright &copy; 2019.CCIP Lab All rights reserved.<a target="_blank" href="#"><
 					return;
 				},
 				beforeSend: function(XMLHttpRequest) {
+					$(".text-white").css('display','none');
+					$("#ASR-Reslut").css('display','none');
 					layer.load();
 
 				},
@@ -355,7 +357,7 @@ Copyright &copy; 2019.CCIP Lab All rights reserved.<a target="_blank" href="#"><
 					$("#ASR-Reslut").css('display','block'); 
 					// var resId = document.getElementById("ASR-Reslut");
 					$("#ASR-Reslut").text(res)
-					console.log(res)
+					// console.log(res)
 				}
 			})
 

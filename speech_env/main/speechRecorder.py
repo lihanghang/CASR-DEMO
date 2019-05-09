@@ -1,8 +1,11 @@
 # -*-coding:utf-8 -*-
 import wave
 from pyaudio import PyAudio, paInt16
-import CASR_model
+from main import CASR_model
 import json
+from datetime import datetime
+from main import baidu_aip
+import  socket
 
 '''
 File: ./speechRecorder
@@ -26,10 +29,14 @@ def save_wave_file(fileName, data):
 
 
 def my_recorder():
+	host_name = socket.gethostname()
+	print(" Host name: %s" % host_name)
+	print(" IP address: %s" % socket.gethostbyname(host_name))
 	pa = PyAudio()
 	stream = pa.open(format = paInt16, channels = 1, 
 					 rate = frameRate, input = True,
-					 frames_per_buffer = NUM_SAMPLES)
+					 frames_per_buffer = NUM_SAMPLES,
+					 output=False)
 	my_buf = []
 	count = 0
 	while count < TIME*8: # 限制录音时长
@@ -37,37 +44,17 @@ def my_recorder():
 		my_buf.append(string_audio_data)
 		count += 1
 		print('.')
-	save_wave_file("latestSpeech/my_audio.wav", my_buf)
+        # filename = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")+".wav"
+		filename = "output.wav"
+	save_wave_file("latestSpeech/" + filename, my_buf)
 	stream.close()
-	return json.dumps(count, ensure_ascii=False)
+	return filename, "save"
 
 
 '''
 使用CASR进行识别
 '''
 def recognizeSpeech():
-	return CASR_model.modelAPI()
+	#return CASR_model.modelAPI()  # 利用自训模型
+     return baidu_aip.baiduAPI() # baidu语音识别接口
 	
-
-# 定义数据流块
-chunk = 2014
-def play():
-    wf = wave.open(r"my_audio.wav", 'rb')
-    p = PyAudio()
-    stream = p.open(format = p.get_format_from_width(wf.getsampwidth()), 
-    	            channels = wf.getnchannels(), rate = wf.getframerate(), 
-    	            output = True)
-    while True:
-    	data = wf.readframes(chunk)
-    	if data == "":break
-    	stream.write(data)
-    # stop data stream
-    stream.close()
-    # close pyaudio
-    p.terminate()
-
-
-# if __name__ == "__main__":
-# 	my_recorde()
-# 	print("recorder success!")
-# 	play()

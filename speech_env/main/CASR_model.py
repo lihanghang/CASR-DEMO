@@ -8,8 +8,8 @@
 """
 import platform as plat
 
-from SpeechModel251 import ModelSpeech
-from LanguageModel2 import ModelLanguage
+from .SpeechModel251 import ModelSpeech
+from .LanguageModel2 import ModelLanguage
 from keras import backend as K
 import os
 import json
@@ -24,7 +24,7 @@ def modelAPI():
 		datapath = 'D:\\语音数据集'
 		modelpath = modelpath + '\\'
 	elif(system_type == 'Linux'):
-		datapath = 'XXX/thchs30'
+		datapath = '/thchs30'
 		modelpath = modelpath + '/'
 	else:
 		print('*[Message] Unknown System\n')
@@ -34,15 +34,16 @@ def modelAPI():
 	ms = ModelSpeech(datapath)
 
 	#ms.LoadModel(modelpath + 'm22_2\\0\\speech_model22_e_0_step_120000.model')
-	ms.LoadModel(modelpath + 'm251/speech_model251_e_0_step_68000.model')
+	ms.LoadModel(modelpath + 'm251/speech_model251_e_0_step_134500.model')
 
 	#ms.TestModel(datapath, str_dataset='test', data_count = 64, out_report = True)
-	# load recorder 
-	r = ms.RecognizeSpeech_FromFile('latestSpeech/BAC009S0765W0121.wav')
+	# load recorder
+	r = ms.RecognizeSpeech_FromFile('/latestSpeech/BAC009S0765W0121.wav')
 	#r = ms.RecognizeSpeech_FromFile('D:\语音数据集\ST-CMDS-20170001_1-OS\\20170001P00241I0053.wav')
 	#r = ms.RecognizeSpeech_FromFile('D:\\语音数据集\\ST-CMDS-20170001_1-OS\\20170001P00020I0087.wav')
 	#r = ms.RecognizeSpeech_FromFile('D:\\语音数据集\\data_thchs30\\data\\A11_167.WAV')
 	#r = ms.RecognizeSpeech_FromFile('D:\\语音数据集\\data_thchs30\\data\\D4_750.wav')
+	print(type(r))
 	K.clear_session()
 	print('*[提示] 语音识别结果：\n', r)
 

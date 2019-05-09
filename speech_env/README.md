@@ -4,7 +4,7 @@
 - 本系统使用Flask框架建立Web系统，主要由语音录制和语音识别两部分组成，其中:  
 1. 语音录制。基于PyAudio是Python下的一个音频处理模块，用于将音频流输送到计算机声卡上。保存录音到本地。  
 2. 语音识别。集成已训练模型实现，读取保存的录音并输出。  
-
+- <strong>目前为更好体验语音识别技术，系统已支持调用百度语音识别[API](https://ai.baidu.com/docs#/ASR-Online-Python-SDK/top)实现。</strong>
 
 ## Usage  
 - 根据实际情况，在CASR_model.py中修改相关文件路径。  
@@ -18,5 +18,5 @@
 ---
 wechat:LHH754086474  
 [CSDN](https://blog.csdn.net/lihangll)
-Updated on May 6,2019.
+Updated on May 9,2019.
 

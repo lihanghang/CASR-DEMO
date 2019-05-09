@@ -44,7 +44,7 @@ def GetSymbolList(datapath):
 		print('*[Message] Unknown System\n')
 		datapath_ += '/'  
 	
-	txt_obj=open(("/home/web/speech_env/" + 'dict.txt').decode('utf8'), 'r') # 打开文件并读入  
+	txt_obj=open(("/home/hanghangli/speech_env/" + 'dict.txt').decode('utf8'), 'r') # 打开文件并读入  
 	txt_text=txt_obj.read()        
 	txt_lines=txt_text.split('\n') # 文本分割    
 	list_symbol=[] # 初始化符号列表

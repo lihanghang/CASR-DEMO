@@ -22,7 +22,7 @@ from keras.layers import Lambda, TimeDistributed, Activation,Conv2D, MaxPooling2
 from keras import backend as K
 from keras.optimizers import SGD, Adadelta, Adam
 
-from readdata24 import DataSpeech
+from .readdata24 import DataSpeech
 
 abspath = ''
 ModelName='251'
