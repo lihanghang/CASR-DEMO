@@ -703,15 +703,16 @@ td, th {
     background-position: right center; }
   .primary-btn.transparent {
     background: transparent;
-    height: 50px;
-    line-height: 50px;
+    /*height: 100px;*/
+    /*line-height: 50px;*/
     border: 3px solid #3279bb;
     border-radius: 5px;
     padding: 0 18px;
     font-size: 15px;
     text-align: left;
     font-weight: bold;
-    color: #ffc107; }
+    color: #ffc107;
+    width: 100% }
    /* .primary-btn.transparent:hover {
       background: #fff;
       color: #000; }
@@ -1848,7 +1849,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     margin-bottom: 50px; }
     .banner-content .input-wrap .form-box {
       background: #fff;
-      max-width: 320px;
+      max-width: 400px;
       padding: 5px 0px 5px 5px;
       margin: 0 auto; }
     .banner-content .input-wrap .form-control {

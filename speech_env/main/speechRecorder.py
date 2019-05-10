@@ -5,56 +5,67 @@ from main import CASR_model
 import json
 from datetime import datetime
 from main import baidu_aip
-import  socket
+import time
+import threading
 
 '''
 File: ./speechRecorder
 Author: HangHang Li
 Date: 2019/04/28
-Description: 基于pyaudio实现实时录音函数
+Description: 基于pyaudio实现实时录音函数,利用线程可实现随时停止
 Abouts: install pyaudio: 1、sudo apt-get install portaudio19-dev　　２、sudo apt-get install python-pyaudio
 '''
 
-frameRate = 16000
-NUM_SAMPLES = 2000
-channels = 1
-sampWidth = 2
-TIME = 10
-def save_wave_file(fileName, data): 
-	wf = wave.open(fileName, "wb")
-	wf.setnchannels(channels)
-	wf.setsampwidth(sampWidth)
-	wf.setframerate(frameRate)
-	wf.writeframes(b"".join(data))
+signal = 'y'   # 创建标志位
+ 
+def record():
+ 
+    global signal
+ 
+    CHUNK = 2000
+    FORMAT = paInt16
+    CHANNELS = 1
+    RATE = 16000
+    RECORD_SECONDS = 60               # 理论上可以设置任意数值，一定要足够大于你实际工作中需要录音的最大时长
+    WAVE_OUTPUT_FILENAME = "latestSpeech/output.wav"
+ 
+    p = PyAudio()
+ 
+    stream = p.open(format=FORMAT,
+                    channels=CHANNELS,
+                    rate=RATE,
+                    input=True,
+                    frames_per_buffer=CHUNK)
+ 
+    frames = []
+    begin = time.time()
+ 
+    for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
+        if signal == 'n':     # 通过判断标志位的状态来决定何时结束录音
+            break
+        data = stream.read(CHUNK)
+        frames.append(data)
+    end = time.time()
+    print('录音结束，时长为: %s 秒' % round((end - begin), 2))
+    stream.stop_stream()
+    stream.close()
+    p.terminate()
+ 
+    wf = wave.open(WAVE_OUTPUT_FILENAME, 'wb')
+    wf.setnchannels(CHANNELS)
+    wf.setsampwidth(p.get_sample_size(FORMAT))
+    wf.setframerate(RATE)
+    wf.writeframes(b''.join(frames))
+    wf.close()
 
+def run():
 
-def my_recorder():
-	host_name = socket.gethostname()
-	print(" Host name: %s" % host_name)
-	print(" IP address: %s" % socket.gethostbyname(host_name))
-	pa = PyAudio()
-	stream = pa.open(format = paInt16, channels = 1, 
-					 rate = frameRate, input = True,
-					 frames_per_buffer = NUM_SAMPLES,
-					 output=False)
-	my_buf = []
-	count = 0
-	while count < TIME*8: # 限制录音时长
-		string_audio_data = stream.read(NUM_SAMPLES)
-		my_buf.append(string_audio_data)
-		count += 1
-		print('.')
-        # filename = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")+".wav"
-		filename = "output.wav"
-	save_wave_file("latestSpeech/" + filename, my_buf)
-	stream.close()
-	return filename, "save"
+    global signal
+    t = threading.Thread(target=record, )   # 创建一个录音的线程
+    t.start()
+    signal = 'y'        # 录音结束之后恢复标志位
 
+def stop():
 
-'''
-使用CASR进行识别
-'''
-def recognizeSpeech():
-	#return CASR_model.modelAPI()  # 利用自训模型
-     return baidu_aip.baiduAPI() # baidu语音识别接口
-	
+    global signal
+    signal = 'n'       # 改变标志位来随时结束录音

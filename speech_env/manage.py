@@ -2,7 +2,8 @@
 from flask import Flask, render_template
 from main import speechRecorder
 from flask import request
-import logging
+import time
+from main import baidu_aip
 
 """
 启动web程序
@@ -18,15 +19,25 @@ def index():
 	 return render_template("index.html")
 
 # 开始录音
-@app.route("/speech",methods=['POST'])
-def recorder():
-	return speechRecorder.my_recorder()
+@app.route("/speech",methods=['GET', 'POST'])
+def beginRecorder():
+	begin  = time.time()
+	speechRecorder.run()
+	return "200"
 
+# 结束录音
+@app.route("/stopSpeech", methods=["GET", "POST"])
+def stopRecorder():
+	print("停止录音……")
+	speechRecorder.stop()
+	end = time.time()
+	return "200"
 
 # 开始识别
-@app.route("/recognize", methods=['POST'])
+@app.route("/recognize", methods=['GET', 'POST'])
 def recognize():
-	return speechRecorder.recognizeSpeech()
+	#return CASR_model.modelAPI()  # 自训模型
+	return baidu_aip.baiduAPI() # baidu语音识别接口
 
 
 if __name__ == '__main__':

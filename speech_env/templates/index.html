@@ -86,13 +86,15 @@
 							<!-- <input type="text" placeholder="输入中文语音……" class="form-control" name="speech"> -->
 							<!-- <input type="button" class="form-control" value="开始录音……"/> -->
 							<button type="button" id="recorder" class="btn search-btn" style="display:block;margin:0 auto" onclick="speechRecorder()">开始录音</button> 
+							<button type="button" id="stop_recorder" class="btn search-btn" style="display:block;margin:0 auto" onclick="stopRecorder()">停止录音</button> 
 							<button type="button" id="recognize" class="btn search-btn" style="display:block;margin:0 auto" onclick="recognizeSpeech()">开始识别</button> 
 						</form>
 					</div>
 					<h4 class="text-white" style="display:none"　id="resTitle">识别结果</h4>
 
 					<div class="courses pt-40">
-					  <a href="#" id="ASR-Reslut" data-wow-duration="1s" data-wow-delay="2.1s" class="primary-btn transparent mr-10 mb-10 wow fadeInDown" style="display: none"></a>
+					  <textarea  id="ASR-Reslut"  class="primary-btn transparent mr-10 mb-10 wow fadeInDown" style="display:none"></textarea>
+					 <!--  <a href="#" id="ASR-Reslut" data-wow-duration="1s" data-wow-delay="2.1s" class="primary-btn transparent mr-10 mb-10 wow fadeInDown" style="display: none"></a> -->
 					</div>
 				</div>
 			</div>
@@ -312,6 +314,7 @@ Copyright &copy; 2019.CCIP Lab All rights reserved.<a target="_blank" href="#"><
 		
 		function speechRecorder() {
 			console.log("开始录音……")
+			alert("注意！录音时长请不要超过60秒！")
 			$.ajax(
 			{
 				type: "POST",
@@ -322,15 +325,39 @@ Copyright &copy; 2019.CCIP Lab All rights reserved.<a target="_blank" href="#"><
 				beforeSend: function(XMLHttpRequest) {
 					$(".text-white").css('display','none');
 					$("#ASR-Reslut").css('display','none');
-					layer.load();
+					layer.msg('录音中……', {
+					  icon: 16,
+					  shade: 0.01
+					});
+				},
+				success: function(res) {
+					//此处演示关闭
+					setTimeout(function(){
+					  layer.closeAll('loading');
+					}, 1000);	
+					return;		  			
+				}
+			})
+		}
 
+		function stopRecorder() {
+			$.ajax(
+			{
+				type: "POST",
+				url: "/stopSpeech",
+				error: function(request) {
+					return;
+				},
+				beforeSend: function(XMLHttpRequest) {
+					layer.msg('正在停止……!');
+					
 				},
 				success: function(res) {
 					//此处演示关闭
 					setTimeout(function(){
 					  layer.closeAll('loading');
 					}, 1000);
-					layer.msg('录音完成!');
+					layer.msg('录音结束!');
 				}
 			})
 		}
@@ -348,8 +375,8 @@ Copyright &copy; 2019.CCIP Lab All rights reserved.<a target="_blank" href="#"><
 				},
 				beforeSend: function(XMLHttpRequest) {
 					layer.msg('正在识别中……', {
-					  icon: 16
-					  ,shade: 0.01
+					  icon: 16,
+					  shade: 0.01
 					});
 				},
 				success: function(res) {
