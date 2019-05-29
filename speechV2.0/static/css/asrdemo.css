@@ -1,0 +1,389 @@
+
+.syntheticBtn {
+    background: #0081FF;
+    padding: 9px 14px;
+    margin-left: 10px;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+}
+#inputText{
+	width:1160px;
+	height:252px;
+    text-align: left;
+    margin:20px;
+    font-size:16px;
+    color:#C9CCD1;
+    border-width: 0px 0px 0px 0px;
+    border-color: #d5d5d5;
+    border-style: solid;
+    _background-attachment: fixed;
+    font-size: 16px;
+    line-height: 24px;
+    border-radius: 2px;
+    resize: none;
+    outline: 0;
+    padding-left: 115px;
+}
+
+.syntheticBtn:hover {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+    opacity: 0.9;
+}
+
+.syntheticBtn:active {
+    background: #0081FF;
+}
+
+.syntheticBtn[disabled] {
+    opacity: 0.4;
+    cursor: default
+}
+#asr_sel{
+    width: 800px;
+}
+
+#asr_lang{
+    display: inline-block;
+    margin:  0px 100px 670px;
+    width: 240px;
+    height: 36px;
+    padding-left: 12px;
+    vertical-align: top;
+    appearance:none;  
+    -moz-appearance:none;  
+    -webkit-appearance:none;
+    background: url("../images/ic_arrow_down_gray_16.png") no-repeat scroll right center #fff;
+    background-position:215px 10px;
+    border:none;
+}
+
+.asr_demo_btn{
+    display: inline-block;
+    width: 120px;
+    height: 36px;
+    border: 1px solid rgba(201,204,209,0.50);
+    background:#F0F2F5;
+    border-sizing:border-box;
+    margin-right:10px;
+}
+
+.asr_demo_audio{
+    display: inline-block;
+    width: 220px;
+    height: 36px;
+    border: 0px;
+    vertical-align: top;
+    margin:0px 240px 0px 0px;
+}
+.volumeIcon {
+    background-image: url(../images/volume.png);
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-right: -3px;
+    margin-bottom: -8px;
+}
+.startIcon {
+    background-image: url(../images/volume.png);
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: -5px;
+}
+
+.time {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: -5px;
+}
+
+.asr_demo_btn{
+	display: inline-flex;
+    width:120px;
+    height:36px;
+    background:#F0F2F5;
+    border:1px solid rgba(201,204,209,0.50);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.play{
+	float:left;
+	margin-left:8px;
+	width:16px;
+    height: 16px;
+    display:inline-block;
+    border-style: solid;
+    border-width: 8px;
+    margin-top:8px;
+    border-color: transparent transparent transparent #60656B;
+}
+.text{
+	width:65px;
+	height:34px;
+	line-height:34px;
+	display:inline-block;
+	float:right;
+	margin-right:14px;
+}
+.asr_demo_btn:hover{
+    background:rgba(255,255,255,0.50);
+}
+
+
+#record {
+    margin:0px 0px 0px 12px;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 110px;
+    height: 36px;
+    background-color: #0081FF;
+}
+#record b{
+	width:24px;
+	height:24px;
+    float: left;
+    margin-top: -2px;
+	display:inline-block;
+	background: url("../static/image/ic_microphone_24px.png");
+}
+#record span{
+	width:56px;
+	font-size:14px;
+	line-height:20px;
+	display:inline-block;
+	float:left;
+	text-align:center;
+	margin-left:0px;
+}
+
+.syntheticBtn:hover {
+    background: url("../static/image/btn_record_hover.png");
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+    opacity: 0.9;
+}
+
+.syntheticBtn:active {
+    background: #0081FF;
+}
+
+.syntheticBtn[disabled] {
+    opacity: 0.4;
+    cursor: default
+}
+
+.tts-container{
+    width: 1200px;
+}
+#btn_buttom{
+    width: 1080px;
+    height: 76px;
+    background:#F0F2F5;
+    padding: 20px;
+    margin-left: 2px;
+}
+
+#asr_input_content{
+    width: 1080px;
+    height: 290px;
+}
+#tts-inputText{
+    display: block;
+    border-width: 0px 0px 0px 0px;
+    _background-attachment: fixed;
+    background-color: #fdfdfd;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 12px 0px 0px 12px;
+    height: 170px;
+    border-radius: 2px;
+    resize: none;
+    outline: 0;
+}
+#tts-word-limit-con{
+    position: absolute;
+    right: 0px;
+    bottom: 10px;
+    text-align: right;
+    font-size: 12px;
+    color: #2A2A2A;
+    opacity: .7
+}
+#ttsinputMod{
+    margin: 0 auto;
+    z-index: 800;
+    width: 1080px;
+    position: relative;
+    height: 368px;
+    background:#F5F7FA;
+    float: left;
+    margin-bottom: 24px;
+}
+#ex1Slider.slider.slider-horizontal {
+    width: 102px;
+    height: 20px;
+    margin-left: 6px;
+    bottom: -3px;
+}
+
+#ex1Slider.slider.slider-horizontal .slider-track {
+    background: #D6D6D6;
+    position: absolute;
+    cursor: pointer;
+    height: 2px;
+    width: 100%;
+    margin-top: -5px;
+    top: 50%;
+    left: 0;
+}
+
+
+
+#ex1Slider .slider-selection {
+    background: #0081FF;
+    height: 100%;
+}
+#ex1Slider .slider-handle {
+    background: #0081FF;
+    width: 12px;
+    height: 12px;
+}
+
+#ex1Slider .slider-handle.round {
+    border-radius: 100%;
+}
+
+#ex1Slider .slider-track-low {
+    height: 70%;
+}
+
+#ex1Slider .slider-track-high {
+    height: 70%;
+}
+
+.speedIcon{
+    background-image: url(../images/ic_speed_gray_24px.png);
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin: 0px -3px -8px 44px;
+}
+
+#ex2Slider.slider.slider-horizontal {
+    width: 102px;
+    height: 20px;
+    margin-left: 6px;
+    bottom: -3px;
+}
+
+#ex2Slider.slider.slider-horizontal .slider-track {
+    background: #B4B4B4;
+    position: absolute;
+    cursor: pointer;
+    height: 2px;
+    width: 100%;
+    margin-top: -5px;
+    top: 50%;
+    left: 0;
+}
+#ex2Slider .slider-selection {
+    background: #0081FF;
+    height: 100%;
+}
+#ex2Slider .slider-handle {
+    background: #0081FF;
+    width: 12px;
+    height: 12px;
+}
+
+#ex2Slider .slider-handle.round {
+    border-radius: 100%;
+}
+
+
+#ex2Slider .slider-track-low {
+    height: 70%;
+}
+
+#ex2Slider .slider-track-high {
+    height: 70%;
+}
+
+
+#ex2Slider.slider.slider-horizontal {
+    width: 102px;
+    height: 20px;
+    margin-left: 6px;
+    bottom: -3px;
+}
+
+
+#ex0Slider.slider.slider-horizontal {
+    width: 102px;
+    height: 20px;
+    margin-left: 6px;
+    bottom: -3px;
+}
+
+
+#ex0Slider.slider.slider-horizontal .slider-track {
+    background: #B4B4B4;
+    position: absolute;
+    cursor: pointer;
+    height: 2px;
+    width: 100%;
+    margin-top: -5px;
+    top: 50%;
+    left: 0;
+}
+#ex0Slider .slider-selection {
+    background: #0081FF;
+    height: 100%;
+}
+#ex0Slider .slider-handle {
+    background: #0081FF;
+    width: 12px;
+    height: 12px;
+}
+
+#ex0Slider .slider-handle.round {
+    border-radius: 100%;
+}
+
+
+#ex0Slider .slider-track-low {
+    height: 70%;
+    margin: 6px;
+}
+
+#ex0Slider .slider-track-high {
+    height: 70%;
+}
+
+
+.volume-speed-inner-container{
+    display: block;
+    margin-left: 30px;
+}
+
+.bar-container{
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.slider.slider-horizontal {
+    width: 102px;
+    height: 20px;
+    margin: 6px;
+}

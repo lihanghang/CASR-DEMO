@@ -1,0 +1,453 @@
+.volumeIcon {
+    background-image: url(../image/volume_new.png);
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-right: -3px;
+    margin-bottom: -8px;
+}
+.startIcon {
+    background-image: url(../image/volume_new.png);
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: -5px;
+}
+
+.time {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: -5px;
+}
+
+
+.syntheticBtn {
+    background: url("../image/btn_synthesize_normal.png");
+    padding: 12px 14px;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 104px;
+    height: 36px;
+    margin-right: 20px;
+}
+
+/*.syntheticBtn:hover {*/
+    /*background: url("../image/btn_synthesize_hover.png");*/
+    /*box-shadow: 0 1px 2px rgba(0, 0, 0, .15);*/
+    /*opacity: 0.9;*/
+/*}*/
+
+.syntheticBtn:active {
+    background: #0081FF;
+}
+
+.syntheticBtn[disabled] {
+    opacity: 0.4;
+    cursor: default
+}
+
+.tts-container{
+    width: 1200px;
+}
+#btn_buttom{
+    width: 1200px;
+    background: #F0F2F5;
+	border-radius: 0 0 4px 4px;
+	height:76px;
+    line-height:76px;
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+#tts_input_content{
+    width: 1144px;
+    margin-right: 92px;
+    height: 280px;
+}
+#inputText{
+	width:1132px;
+	height:240px;
+	margin:0px 0px 0px 20px;
+	display:block;
+	background:#F5F7FA;
+	border:0px;
+	font-size:16px;
+	color:#2D3138;
+	resize:none;
+}
+#inputText::-webkit-input-placeholder{color:#C9CCD1;}
+#clearInput {
+    background: url(../image/tool_btn.png);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    display:none;
+}
+
+#tts-inputText{
+    display: block;
+    border-width: 0px 0px 0px 0px;
+    _background-attachment: fixed;
+    background-color: #fdfdfd;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 12px 0px 0px 12px;
+    height: 170px;
+    border-radius: 2px;
+    resize: none;
+    outline: 0;
+}
+:-moz-placeholder { color: #C9CCD1; }
+#tts-word-limit-con{
+    position: absolute;
+    right: 20px;
+    bottom: 75px;
+    text-align: right;
+    font-size: 12px;
+    color: #2A2A2A;
+    opacity: .7;
+    margin-bottom:16px;
+}
+#ttsinputMod{
+    margin: 0 auto;
+    z-index: 800;
+    width: 1200px;
+    position: relative;
+    height: 370px;
+    background-color: #F5F7FA;
+    float: left;
+    border-radius: 4px;
+    margin-bottom:32px;
+}
+.clearall{
+	float:right;
+	top:20px;
+	right:20px;
+	margin-top:6px;
+}
+#ex1Slider.slider.slider-horizontal {
+    width: 102px;
+    height: 20px;
+    margin-left: 6px;
+    bottom: -8px;
+}
+
+#ex1Slider.slider.slider-horizontal .slider-track {
+    background: #D6D6D6;
+    position: absolute;
+    cursor: pointer;
+    height: 2px;
+    width: 100%;
+    margin-top: -5px;
+    top: 50%;
+    left: 0;
+}
+
+
+
+#ex1Slider .slider-selection {
+    background: #0081FF;
+    height: 100%;
+}
+#ex1Slider .slider-handle {
+    background: #0081FF;
+    width: 12px;
+    height: 12px;
+}
+
+#ex1Slider .slider-handle.round {
+    border-radius: 100%;
+}
+
+#ex1Slider .slider-track-low {
+    height: 70%;
+}
+
+#ex1Slider .slider-track-high {
+    height: 70%;
+}
+
+.speedIcon{
+    background-image: url(../image/ic_speed_gray_24px-new.png);
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin: 0px -3px -8px 44px;
+}
+
+.toneIcon{
+    background-image: url(../image/ic_speed_gray_24px-new.png);
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin: 0px -3px -8px 44px;
+}
+
+
+
+#ex2Slider.slider.slider-horizontal {
+    width: 102px;
+    height: 20px;
+    margin-left: 6px;
+    bottom: -8px;
+}
+.beyond {
+    color: #F23A3A
+}
+.slider .tooltip-inner{
+    display: none;
+}
+#ex2Slider.slider.slider-horizontal .slider-track {
+    background: #B4B4B4;
+    position: absolute;
+    cursor: pointer;
+    height: 2px;
+    width: 100%;
+    margin-top: -5px;
+    top: 50%;
+    left: 0;
+}
+#ex2Slider .slider-selection {
+    background: #0081FF;
+    height: 100%;
+}
+#ex2Slider .slider-handle {
+    background: #0081FF;
+    width: 12px;
+    height: 12px;
+}
+
+#ex2Slider .slider-handle.round {
+    border-radius: 100%;
+}
+
+#ex2Slider .slider-track-low {
+    height: 70%;
+}
+
+#ex2Slider .slider-track-high {
+    height: 70%;
+}
+
+
+#ex0Slider.slider.slider-horizontal {
+    width: 200px;
+    height: 20px;
+    margin-left: 20px;
+}
+
+#ex0Slider.slider.slider-horizontal .slider-track {
+    background: #B4B4B4;
+    position: absolute;
+    cursor: pointer;
+    height: 4px;
+    width: 100%;
+    margin-top: -5px;
+    top: 50%;
+    left: 0;
+}
+#ex0Slider .slider-selection {
+    background: #0081FF;
+    height: 100%;
+}
+#ex0Slider .slider-handle {
+    background: #0081FF;
+    width: 15px;
+    height: 15px;
+}
+
+#ex0Slider .slider-handle.round {
+    border-radius: 100%;
+}
+
+#ex0Slider .slider-track-low {
+    height: 70%;
+}
+
+#ex0Slider .slider-track-high {
+    height: 70%;
+}
+
+.bar-container{
+    display: inline-flex;
+    flex-direction: row;
+}
+.volume-speed-inner-container{
+    display: block;
+    margin-left: 30px;
+}
+.btn-text-style{
+    position: relative;
+    top: -25px;
+    margin-left: 4px;
+}
+.voicePitch{
+    margin-right: 17px;
+}
+.voiceLanguage{
+    margin-right: 12px;
+}
+.select-box-style {
+    width: 140px;
+    height: 36px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    position: relative;
+    border: none;
+}
+
+.voicePitch-profile{
+    width: 20px;
+    height: 20px;
+    margin-left: 9px;
+}
+.downarrow-style{
+    width: 16px;
+    height: 16px;
+}
+.downarrow-container{
+    margin-left: 40px;
+}
+.voicePitchText{
+    font-family: "PingFangSC-Regular";
+    font-size: 14px;
+    color: rgba(45,49,56,0.50);
+    letter-spacing: 0;
+    line-height: 14px;
+    position: relative;
+    margin-left:7px;
+    display: inline-flex;
+    width: 38px;
+}
+.voicePitch-profile-container {
+    display:inline-flex; 
+    align-items:center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.voicePitch-profile-outter-container{
+    display: inline-flex;
+    cursor:pointer;
+}
+
+.selLan {
+    width: 346px;
+    list-style: none;
+    font-size: 14px;
+    position: absolute;
+    z-index: 9999;
+    left: -40px;
+    top:36px;
+    display: none;
+}
+.selLan li {
+    width: 346px;
+    background: #fff;
+    /*height: 30px;*/
+    line-height: 30px;
+}
+
+.selPitch {
+    width: 140px;
+    list-style: none;
+    font-size: 14px;
+    position: absolute;
+    z-index: 9999;
+    left: -40px;
+    top:36px;
+    display: none;
+}
+.selPitch li {
+    width: 140px;
+    background: #fff;
+    /*height: 30px;*/
+    line-height: 30px;
+}
+.normalbtn_tts {
+    border: none !important;
+    margin-right: 10px;
+}
+.normalbtn {
+    position: relative;
+    right: 14px;
+    width: 140px;
+    height: 36px;
+    background: #FFF;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.normalbtnPitch{
+    position: relative;
+    right: 14px;
+    width: 140px;
+    height: 36px;
+    background: #FFF;
+    cursor: pointer;
+    margin-left: 12px;
+    margin-right: 4px;
+    border-radius: 4px;
+}
+#customSelectBtn .btn_arrow {
+    position: absolute;
+    top: 11px;
+    right: 8px;
+    background: url(../image/tts-downarrow-16px.png);
+    line-height: 0;
+    font-size: 0;
+    width: 16px;
+    height: 16px;
+}
+
+#customSelectBtn .A_shape_style {
+    position: absolute;
+    top: 9px;
+    left: 10px;
+    background: url(../image/tts-voice-language.png);
+    line-height: 0;
+    font-size: 0;
+    width: 20px;
+    height: 20px;
+}
+.selectbox_pitch_profile {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    background: url(../image/tts-voice-pitch.png);
+    line-height: 0;
+    font-size: 0;
+    width: 20px;
+    height: 20px;
+}
+.btn_arrow_pitch{
+    position: absolute;
+    top: 11px;
+    right: 8px;
+    background: url(../image/tts-downarrow-16px.png);
+    line-height: 0;
+    font-size: 0;
+    width: 16px;
+    height: 16px;
+}
+.btn_text_pitch{
+    position: relative;
+    top:-20px;
+}
+.btn_text {
+    position: relative;
+    top:-20px;
+}
+.anchorColor{
+    color: #2D3138;
+    text-decoration: none;
+}
+.anchorColor:hover{
+    color: #0081FF;
+    text-decoration: none;
+}

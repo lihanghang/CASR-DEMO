@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ZH" class="no-js">
+
+<head>
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="../static/image/icon.png">
+	<!-- Author Meta -->
+	<meta name="author" content="codepixer">
+	<!-- Meta Description -->
+	<meta name="description" content="中文智能语音体验系统">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="语音识别、语音合成、声纹识别">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>中文智能语音体验系统</title>
+
+
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/linearicons.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
+	<link rel="stylesheet" href="../static/css/nice-select.css">
+	<link rel="stylesheet" href="../static/css/animate.min.css">
+	<link rel="stylesheet" href="../static/css/owl.carousel.css">
+	<link rel="stylesheet" href="../static/css/asrdemo.css">
+	<link rel="stylesheet" href="../static/css/bootstrap-slider.min.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+	<!-- Start Banner Area -->
+	<section class="home-banner-area relative">
+		<div class="container">
+			<div class="row fullscreen " style="padding-top: 300px; padding-left: 250px" >
+				<div class="banner-content col-lg-8 col-md-12">
+					<h1 class="wow fadeIn" data-wow-duration="4s">CASR-DEMO</h1>
+					<p class="text-white" style="font-size: 25px">
+						中文智能语音识别体验中心
+					</p>	
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="feature-area">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-8">
+					<div class="section-title text-center">
+						<h1>中文智能语音识别体验中心<h1>
+						<p>
+							包含语音识别、语音合成、声纹识别(说话人辨认(1:N)/说话人确认(1:1))三大服务。
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="feature-inner row">
+				<div class="col-lg-12 col-md-12">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+					        <h3 class="panel-title">
+					            自动语音识别
+					        </h3>
+					    </div>
+					    <div class="panel-body">					       
+                           <div class="tts-container">
+					            <div id="ttsinputMod" class="column fl">
+			                        <div class="border content" id="asr_input_content">
+			                            <div id="inputText" class="text" dir="ltr" tabindex="1" wrap="SOFT" name="i">欢迎体验语音识别功能。</div>
+			                        </div> 
+									<div id="btn_buttom" class="row" style="display:inline-flex;">
+											<audio id="audioPlayer" class="asr_demo_audio" autoplay controls></audio>
+			                                <select id="asr_lang">
+			                                    <option selected="selected" value="zh-CHS">中文</option>
+			                                    <option value="en">英文</option>
+			                                </select>
+			                                <button id="record"><b id="record_status"></b><span id="record_text">录 音</span></button>
+			                                <span id="time" style="width: 20px;display: inline-block"></span>
+			                        </div>
+					            </div>
+							</div>
+					    </div>
+					</div>
+				</div>
+				<div class="col-lg-12 col-md-12">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+					        <h3 class="panel-title">
+					            中文语音合成
+					        </h3>
+					    </div>
+					    <div class="panel-body">
+							
+							<div class="clearall">
+									<div id="clearInput" class="clog-js" style="display: block;">
+										<div class="clearnotice" style="display: none;"></div>
+									</div>
+							</div>
+							<div class="row border content" id="tts_input_content">
+								<span id="tts-word-limit-con" style="bottom: 160px; right: 25px;"><span id="wordCurrent">0</span> / 200</span>
+	                            <textarea id="inputTexts" style="width: 100%; height: 300px;color:green; resize: none" placeholder="请输入要合成的文字，欢迎在线体验智能语音合成服务。" onkeyup="countText()"></textarea>
+							
+							
+							</div>
+                        	<div id="btn_buttom" class="row" style="width: 100%px; height: 115px">
+                        		<div class="volume-speed-inner-container" style="width: 790px">
+                        			<span class="bar-container">
+                        				音量：<input id="ex1" type="text" class="span2"  value="" 
+											data-slider-id="ex1Slider"
+											data-slider-min="0" data-slider-max="15" data-slider-step="1"/>
+
+                        			</span>
+                        			<span class="bar-container">
+                        				语速：<input id="ex2" type="text" class="span2"  value="" 
+											data-slider-id="ex2Slider"
+											data-slider-min="0" data-slider-max="15" data-slider-step="1"/>
+                        			</span>
+
+                        			<!-- <span class="bar-container">
+                        				音量：<input id="ex0" type="text" class="span2"  value="" 
+											data-slider-id="ex0Slider"
+											data-slider-min="0" data-slider-max="15" data-slider-step="1"/>
+                        			</span> -->
+                  
+                        		</div>
+                        		<!--选择发音人：发音人选择, 0为普通女声，1为普通男生，3为情感合成-度逍遥，4为情感合成-度丫丫，默认为普通女声 -->
+                        		<!-- <div id="customSelectBtnPitch" class="normalbtnPitch" >
+                        			<form role="form">
+									  <div class="form-group">
+									    <select class="form-control" style="height: 35px; font-size: 15px" id="optionList">
+									      <option value="" disabled selected hidden>-----发音人-----</option>
+									      <option value="0">普通女声</option>
+									      <option value="1">普通男生</option>
+									      <option value="2">情感合成-度逍遥</option>
+									      <option value="3">情感合成-度丫丫</option>
+									    </select>
+									  </div>
+									</form>
+                        		</div> -->
+                        		<span style="padding-left:350px">
+                        		<button type="button" id="syntheticBtn" class="syntheticBtn" value="1" style="background: url(../static/image/btn_synthesize_normal.png); padding: 17px 22px;"></button>
+                        		<a id="atLink" data-pos="web.i.bottom" class="clog-js" data-clog="ATBUTTON_CLICK" href="#"></a>
+								</span>
+								<span style="padding: 0px 5px;">
+								<button type="button" id="downloadBtn" class="downloadBtn" style="width: 100px;height: 37px; background: #0081FF; color: #fff; font-size: 14px;
+								border-radius: 4px"><a id="downloadAudio" href="" style="color:#fff;">下载</a></button>
+                        		</span>
+                        	</div>
+							<audio id="audioPlayer" style="display:none" controls="" preload=""></audio>
+							<div id="jplayer" style="width: 0px; height: 0px;overflow: hidden;"><img id="jp_poster_0" style="width: 0px; height: 0px; display: none;"><audio id="jp_audio_0" preload="metadata"></audio></div>
+							<div id="flashZone" style="width: 0px; height: 0px;overflow: hidden;"></div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-lg-12 col-md-12">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+					        <h3 class="panel-title">
+					            声纹识别
+					        </h3>
+					    </div>
+					    <div class="panel-body">
+					         
+					    </div>
+					</div>
+
+				</div>
+		
+			</div>
+		</div>
+	</section>
+	<!-- Start Footer Area -->
+	<footer class="footer-area section-gap">
+ 		<div class="container">
+			<div class="footer-bottom row align-items-center">
+				<p class="footer-text m-0 col-lg-5 col-md-5">
+				Copyright &copy; 2019.CCIP Lab All rights reserved.<a target="_blank" href="#"></a>
+				</p>
+			</div> 
+		</div>
+	</footer>
+	<!-- End Footer Area -->
+	<!-- ####################### Start Scroll to Top Area ####################### -->
+	<div id="back-top">
+		<a title="Go to Top" href="#"></a>
+	</div>
+	<!-- ####################### End Scroll to Top Area ####################### -->
+
+	<script src="../static/js/vendor/jquery-2.2.4.min.js"></script>
+	<!-- <script src="../static/js/popper.min.js"></script> -->
+	<script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}"></script>
+	<!---<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>--->
+	<script src="../static/js/easing.min.js"></script>
+	<script src="../static/js/hoverIntent.js"></script>
+	<script src="../static/js/superfish.min.js"></script>
+	<script src="../static/js/jquery.ajaxchimp.min.js"></script>
+	<script src="../static/js/jquery.magnific-popup.min.js"></script>
+	<script src="../static/js/owl.carousel.min.js"></script>
+	<script src="../static/js/owl-carousel-thumb.min.js"></script>
+	<script src="../static/js/jquery.sticky.js"></script>
+	<script src="../static/js/jquery.nice-select.min.js"></script>
+	<script src="../static/js/parallax.min.js"></script>
+	<script src="../static/js/waypoints.min.js"></script>
+	<script src="../static/js/wow.min.js"></script>
+	<script src="../static/js/jquery.counterup.min.js"></script>
+	<script src="../static/js/mail-script.js"></script>
+	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+	<script src="../static/layer/layer.js"></script>
+	<script src="../static/js/bootstrap-slider.min.js"></script>
+	<script src="../static/js/HZRecorder.js"></script>
+	<script src="../static/js/ttsdemo.js"></script>
+	<script src="../static/js/toast.js"></script>
+	<script src="../static/js/jquery.jplayer.min.js"></script>
+
+
+
+    <!-- http://layer.layui.com/ -->
+	<!-- 为录音按钮绑定方法 -->
+	<script type="text/javascript">
+		// var slider_speed = new Slider("#ex1",{tooltip: 'always'});
+		// var slider_tone  = new Slider("#ex2",{tooltip: 'always'});
+		// var slider_voice = new Slider("#ex3",{tooltip: 'always'});
+	    var recorder;
+	    function get(id) {
+	        return document.getElementById(id);
+	    }
+
+	    var elButton = get("record"),
+	            elTime = get("time");
+	        audio = document.querySelector('audio');
+
+
+	    var isStart = true, time = 60, timer;
+
+
+		//倒计时
+		function updateTimer() {
+			$('#record_text').text("结束" + (--time) + "s");
+			if((time)==0){
+				elButton.click();
+			}
+		}
+		    //更新按钮
+    function updateButton() {
+        isStart = !isStart;
+        time
+//        var val = isStart ? "开始录音" : "停止录音";
+        elTime.innerHTML = "";
+        if(isStart){
+            $('#record_status').css("background","url(../static/image/ic_microphone_24px.png)");
+            $('#record_text').text("录 音");
+        }else {
+            $('#record_status').css("background","url(../static/image/ic_stop_24px.png)");
+            $('#record_text').text("结束 60s");
+        }
+    }
+	elButton.onclick = function () {
+        if (isStart) {
+            time = 60;
+            //开始录音
+            updateButton();
+            timer = setInterval(updateTimer, 1000);
+            recorder.start();
+        } else {
+            //停止录音
+            recorder && recorder.stop();
+            if (timer) clearInterval(timer);
+            updateButton();
+            uploadAudio();
+            recorder.play(audio);
+            recorder && recorder.clear();
+        }
+    };
+
+	window.onload = function init() {
+			HZRecorder.get(function (rec) {
+				recorder = rec;
+			});
+		};
+
+
+	function uploadAudio() {
+        var lang = $("#asr_lang option:selected").val();
+        recorder.upload(function (data) {
+            var fd = new FormData();
+			fd.append("audioData", data);
+            var url = "";
+            jQuery.ajax({
+                url : "https://aidemo.youdao.com/asr?lang="+lang,
+                type : 'POST',
+                async: false,
+                data : fd,
+                // 告诉jQuery不要去处理发送的数据
+                processData : false,
+                // 告诉jQuery不要去设置Content-Type请求头
+                contentType : false,
+                success : function(res) {
+                    var result = eval("("+res+")");
+                    if (result.errorCode == "0") {
+						$("#inputText").html("");
+                        $("#inputText").html(result.result);
+                        $("#inputText").css("color","#222");
+                    }else if(result.errorCode==411){
+                        Toast.toast("您的访问过于频繁，请稍后访问");
+                    }else if(result.errorCode==413){
+                        Toast.toast("您今日的访问已达到上限");
+                    }else if(result.errorCode==410){
+                        Toast.toast("您的访问过于频繁，请稍后访问");
+                    }else{
+                        Toast.toast("语音识别失败")
+                    }
+                },
+                error : function(error) {
+                    Toast.toast("上传失败");
+                }
+            });
+        });
+    }
+
+
+
+		function speechRecorder() {
+			console.log("开始录音……")
+			alert("注意！录音时长请不要超过60秒！")
+			$.ajax(
+			{
+				type: "POST",
+				url: "/speech",
+				error: function(request) {
+					return;
+				},
+				beforeSend: function(XMLHttpRequest) {
+					$(".text-white").css('display','none');
+					$("#ASR-Reslut").css('display','none');
+					layer.msg('录音中……', {
+					  icon: 16,
+					  shade: 0.01
+					});
+				},
+				success: function(res) {
+					//此处演示关闭
+					setTimeout(function(){
+					  layer.closeAll('loading');
+					}, 1000);	
+					return;		  			
+				}
+			})
+		}
+
+		function stopRecorder() {
+			$.ajax(
+			{
+				type: "POST",
+				url: "/stopSpeech",
+				error: function(request) {
+					return;
+				},
+				beforeSend: function(XMLHttpRequest) {
+					layer.msg('正在停止……!');
+					
+				},
+				success: function(res) {
+					//此处演示关闭
+					setTimeout(function(){
+					  layer.closeAll('loading');
+					}, 1000);
+					layer.msg('录音结束!');
+				}
+			})
+		}
+
+
+		function recognizeSpeech() {
+			console.log("开始识别……")
+			$.ajax(
+			{
+				type: "POST",
+				url: "/recognize",
+				dataType: "text",
+				error: function(request) {
+					return;
+				},
+				beforeSend: function(XMLHttpRequest) {
+					layer.msg('正在识别中……', {
+					  icon: 16,
+					  shade: 0.01
+					});
+				},
+				success: function(res) {
+					$(".text-white").css('display','block');
+					$("#ASR-Reslut").css('display','block'); 
+					// var resId = document.getElementById("ASR-Reslut");
+					$("#ASR-Reslut").text(res)
+					// console.log(res)
+				}
+			})
+
+
+		}
+	</script>
+
+
+</body>
+
+</html>

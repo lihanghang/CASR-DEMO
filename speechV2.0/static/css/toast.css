@@ -1,0 +1,39 @@
+.toast-container {
+    position: fixed;
+    z-index: 9999;
+    top: 245px;
+    width: 100%;
+    -webkit-transition: opacity .8s;
+    transition: opacity .8s;
+    opacity: 0
+}
+
+.toast-container.toast-active {
+    opacity: 1
+}
+.toast-container .toast_warn{
+    width: 32px;
+    height: 32px;
+    background-size: 32px 32px;
+    background-image: url("../images/tips_alert.png");
+    margin: 20px auto;
+}
+.toast-container .toast_loading{
+    width: 32px;
+    height: 32px;
+    background-size: 32px 32px;
+    background-image: url("../images/loading.gif");
+    margin: 20px auto;
+}
+.toast-message-container {
+    font-size: 14px;
+    width: 250px;
+    height: 102px;
+    margin: 10px auto;
+    padding: 5px;
+    text-align: center;
+    color: #fff;
+    opacity: 0.75;
+    background: #000000;
+    border-radius: 3px;
+}

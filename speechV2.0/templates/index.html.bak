@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="../static/image/icon.png">
+	<!-- Author Meta -->
+	<meta name="author" content="codepixer">
+	<!-- Meta Description -->
+	<meta name="description" content="">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>CASR_DEMO</title>
+
+	<!--
+			Google Font
+			============================================= -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,500,600" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500i" rel="stylesheet">
+
+	<!--
+			CSS
+			============================================= -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/linearicons.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
+	<link rel="stylesheet" href="../static/css/nice-select.css">
+	<link rel="stylesheet" href="../static/css/animate.min.css">
+	<link rel="stylesheet" href="../static/css/owl.carousel.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+
+	<!-- Start Header Area -->
+	<header id="header">
+		<!-- <div class="container">
+			<div class="row align-items-center justify-content-between d-flex">
+				<div id="logo">
+					<a href="index.html"><img src="{{ url_for('static', filename='image/logo.png') }}" alt="" title="" /></a>
+				</div>
+				<nav id="nav-menu-container">
+					<ul class="nav-menu">
+						<li class="menu-active"><a href="index.html">Home</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="courses.html">Courses</a></li>
+						<li class="menu-has-children"><a href="">Pages</a>
+							<ul>
+								<li><a href="elements.html">Elements</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="">Blog</a>
+							<ul>
+								<li><a href="blog-home.html">Blog Home</a></li>
+								<li><a href="blog-single.html">Blog Details</a></li>
+							</ul>
+						</li>
+						<li><a href="contact.html">Contact</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div> -->
+	</header>
+	<!-- End Header Area -->
+
+
+	<!-- Start Banner Area -->
+	<section class="home-banner-area relative">
+		<div class="container">
+			<div class="row fullscreen d-flex align-items-center justify-content-center">
+				<div class="banner-content col-lg-8 col-md-12">
+					<h1 class="wow fadeIn" data-wow-duration="4s">CASR-DEMO</h1>
+					<p class="text-white">
+					欢迎体验简易版中文语音识别演示系统
+					</p>
+
+					<div class="input-wrap">
+						<form action="" method="post" name="speech" class="form-box d-flex justify-content-between">
+							<!-- <input type="text" placeholder="输入中文语音……" class="form-control" name="speech"> -->
+							<!-- <input type="button" class="form-control" value="开始录音……"/> -->
+							<button type="button" id="recorder" class="btn search-btn" style="display:block;margin:0 auto" onclick="speechRecorder()">开始录音</button> 
+							<button type="button" id="recognize" class="btn search-btn" style="display:block;margin:0 auto" onclick="recognizeSpeech()">开始识别</button> 
+						</form>
+					</div>
+					<h4 class="text-white" style="display:none"　id="resTitle">识别结果</h4>
+
+					<div class="courses pt-40">
+					  <a href="#" id="ASR-Reslut" data-wow-duration="1s" data-wow-delay="2.1s" class="primary-btn transparent mr-10 mb-10 wow fadeInDown" style="display: none"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="rocket-img">
+			<img src="../static/image/rocket.png" alt="">
+		</div>
+	</section>
+	<!-- End Banner Area -->
+
+
+	<!-- Start About Area -->
+	<!-- End About Area -->
+
+
+	<!-- Start Courses Area -->
+	<!-- End Courses Area -->
+
+	<!--Start Feature Area -->
+	<section class="feature-area">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-8">
+					<div class="section-title text-center">
+						<h1>中文语音识别演示系统介绍</h1>
+						<p>
+							嗨，大家好！我的真名叫“小译”，下面是我的成长过程，快来看看吧！
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="feature-inner row">
+				<div class="col-lg-4 col-md-6">
+					<div class="feature-item">
+						<i class="ti-crown"></i>
+						<h4>系统架构</h4>
+						<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".1s">
+							<p>
+								整体架构分别由声学模型和语言模型构成，其中声学模型由卷积神经神经网络＋连接性时序分类组成；语言模型采用统计语言模型－－最大熵隐马尔科夫模型。
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="feature-item">
+						<i class="ti-briefcase"></i>
+						<h4>声学模型</h4>
+						<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".3s">
+							<p>
+								DFCNN＋CTC. 实现从语音到拼音的翻译建模。
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="feature-item">
+						<i class="ti-medall-alt"></i>
+						<h4>语言模型</h4>
+						<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".5s">
+							<p>
+								隐马尔可夫模型。实现从拼音到文本的翻译建模。
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="feature-item">
+						<i class="ti-key"></i>
+						<h4>训练数据源</h4>
+						<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".1s">
+							<p>
+								目前使用THCHS30与ST-CMDS-20170001_1-OS。
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="feature-item">
+						<i class="ti-files"></i>
+						<h4>生产环境</h4>
+						<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".3s">
+							<p>
+								深度学习框架：TensorFlow+Kreas.相关库：wave、PyAudio等
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="feature-item">
+						<i class="ti-headphone-alt"></i>
+						<h4>系统性能</h4>
+						<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".5s">
+							<p>
+								支持纯中文识别且会进行断句功能。准确率高达90%以上！
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Feature Area -->
+
+
+	<!-- Start Faculty Area -->
+	<!-- End Faculty Area -->
+
+
+	<!-- Start Testimonials Area -->
+	<!-- End Testimonials Area -->
+
+
+	<!-- Start Footer Area -->
+	<footer class="footer-area section-gap">
+ 		<div class="container">
+<!-- 			<div class="row">
+				<div class="col-lg-2 col-md-6 single-footer-widget">
+					<h4>Top Products</h4>
+					<ul>
+						<li><a href="#">Managed Website</a></li>
+						<li><a href="#">Manage Reputation</a></li>
+						<li><a href="#">Power Tools</a></li>
+						<li><a href="#">Marketing Service</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2 col-md-6 single-footer-widget">
+					<h4>Quick Links</h4>
+					<ul>
+						<li><a href="#">Jobs</a></li>
+						<li><a href="#">Brand Assets</a></li>
+						<li><a href="#">Investor Relations</a></li>
+						<li><a href="#">Terms of Service</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2 col-md-6 single-footer-widget">
+					<h4>Features</h4>
+					<ul>
+						<li><a href="#">Jobs</a></li>
+						<li><a href="#">Brand Assets</a></li>
+						<li><a href="#">Investor Relations</a></li>
+						<li><a href="#">Terms of Service</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2 col-md-6 single-footer-widget">
+					<h4>Resources</h4>
+					<ul>
+						<li><a href="#">Guides</a></li>
+						<li><a href="#">Research</a></li>
+						<li><a href="#">Experts</a></li>
+						<li><a href="#">Agencies</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-4 col-md-6 single-footer-widget">
+					<h4>Newsletter</h4>
+					<p>You can trust us. we only send promo offers,</p>
+					<div class="form-wrap" id="mc_embed_signup">
+						<form target="_blank" action=""
+						 method="get" class="form-inline">
+							<input class="form-control" name="EMAIL" placeholder="Your Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '"
+							 required="" type="email">
+							<button class="click-btn btn btn-default"><span class="lnr lnr-arrow-right"></span></button>
+							<div style="position: absolute; left: -5000px;">
+								<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+							</div>
+
+							<div class="info"></div>
+						</form>
+					</div>
+				</div>
+			</div> -->
+			<div class="footer-bottom row align-items-center">
+				<p class="footer-text m-0 col-lg-5 col-md-5">
+Copyright &copy; 2019.CCIP Lab All rights reserved.<a target="_blank" href="#"></a>
+</p>
+				<!-- <div class="col-lg-4 col-md-12 footer-social">
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-dribbble"></i></a>
+					<a href="#"><i class="fa fa-behance"></i></a>
+				</div> -->
+			</div> 
+		</div>
+	</footer>
+	<!-- End Footer Area -->
+
+	<!-- ####################### Start Scroll to Top Area ####################### -->
+	<div id="back-top">
+		<a title="Go to Top" href="#"></a>
+	</div>
+	<!-- ####################### End Scroll to Top Area ####################### -->
+
+	<script src="../static/js/vendor/jquery-2.2.4.min.js"></script>
+	<script src="../static/js/popper.min.js"></script>
+	<script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}"></script>
+	<!---<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>--->
+	<script src="../static/js/easing.min.js"></script>
+	<script src="../static/js/hoverIntent.js"></script>
+	<script src="../static/js/superfish.min.js"></script>
+	<script src="../static/js/jquery.ajaxchimp.min.js"></script>
+	<script src="../static/js/jquery.magnific-popup.min.js"></script>
+	<script src="../static/js/owl.carousel.min.js"></script>
+	<script src="../static/js/owl-carousel-thumb.min.js"></script>
+	<script src="../static/js/jquery.sticky.js"></script>
+	<script src="../static/js/jquery.nice-select.min.js"></script>
+	<script src="../static/js/parallax.min.js"></script>
+	<script src="../static/js/waypoints.min.js"></script>
+	<script src="../static/js/wow.min.js"></script>
+	<script src="../static/js/jquery.counterup.min.js"></script>
+	<script src="../static/js/mail-script.js"></script>
+	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+	<script src="../static/layer/layer.js"></script>
+
+
+    <!-- http://layer.layui.com/ -->
+	<!-- 为录音按钮绑定方法 -->
+	<script type="text/javascript">
+		
+		function speechRecorder() {
+			console.log("开始录音……")
+			$.ajax(
+			{
+				type: "POST",
+				url: "/speech",
+				error: function(request) {
+					return;
+				},
+				beforeSend: function(XMLHttpRequest) {
+					$(".text-white").css('display','none');
+					$("#ASR-Reslut").css('display','none');
+					layer.load();
+
+				},
+				success: function(res) {
+					//此处演示关闭
+					setTimeout(function(){
+					  layer.closeAll('loading');
+					}, 1000);
+					layer.msg('录音完成!');
+				}
+			})
+		}
+
+
+		function recognizeSpeech() {
+			console.log("开始识别……")
+			$.ajax(
+			{
+				type: "POST",
+				url: "/recognize",
+				dataType: "text",
+				error: function(request) {
+					return;
+				},
+				beforeSend: function(XMLHttpRequest) {
+					layer.msg('正在识别中……', {
+					  icon: 16
+					  ,shade: 0.01
+					});
+				},
+				success: function(res) {
+					$(".text-white").css('display','block');
+					$("#ASR-Reslut").css('display','block'); 
+					// var resId = document.getElementById("ASR-Reslut");
+					$("#ASR-Reslut").text(res)
+					console.log(res)
+				}
+			})
+
+
+		}
+	</script>
+
+
+</body>
+
+</html>
