@@ -55,7 +55,7 @@
 					<div class="section-title text-center">
 						<h1>中文智能语音识别体验中心<h1>
 						<p>
-							包含语音识别、语音合成、声纹识别(说话人辨认(1:N)/说话人确认(1:1))三大服务。
+							包含语音识别、语音合成、声纹识别之说话人识别三大服务。
 						</p>
 					</div>
 				</div>
@@ -164,14 +164,32 @@
 					<div class="panel panel-info">
 						<div class="panel-heading">
 					        <h3 class="panel-title">
-					            声纹识别
+					            声纹识别之【说话人识别】
 					        </h3>
 					    </div>
 					    <div class="panel-body">
-					         
+							<div class="row">
+								<div class="col-lg-6">
+									<h4>1、声纹注册</h4>
+									<p class="lead">输入姓名后点击开始注册声纹按钮并通过录制声音且不要低于10S</p>
+										<div class="input-group">
+											<input type="text" class="form-control" id="printName" placeholder="请填写注册人名字">
+										</div>
+										<br >
+										<button type="button" class="btn btn-info" onclick="speechRecorder()">开始注册声纹</button>
+
+									<h4>2、声纹识别</h4>
+										<p class="lead">个人录音后与声纹库中进行比对后返回识别结果。</p>
+										<button type="button" class="btn btn-success" onclick="recognizeSpeech()">说话人识别</button>
+										<p class="lead">请点击识别按钮后开始录制语音，时长10S左右。</p>
+
+								</div><!-- /.col-lg-6 -->
+								<div class="col-lg-6">
+										<div class="alert alert-info" style="height: 300px"><p style="font-weight: bolder" id="recogName"></p> </div>
+								</div><!-- /.col-lg-6 -->
+							</div><!-- /.row -->
 					    </div>
 					</div>
-
 				</div>
 		
 			</div>
@@ -222,9 +240,9 @@
 
 
 
-    <!-- http://layer.layui.com/ -->
 	<!-- 为录音按钮绑定方法 -->
 	<script type="text/javascript">
+
 		// var slider_speed = new Slider("#ex1",{tooltip: 'always'});
 		// var slider_tone  = new Slider("#ex2",{tooltip: 'always'});
 		// var slider_voice = new Slider("#ex3",{tooltip: 'always'});
@@ -262,7 +280,7 @@
             $('#record_text').text("结束 60s");
         }
     }
-	elButton.onclick = function () {
+	elButton.onclick = function (){
         if (isStart) {
             time = 60;
             //开始录音
@@ -326,14 +344,17 @@
     }
 
 
-
+		// 注册声纹
 		function speechRecorder() {
-			console.log("开始录音……")
-			alert("注意！录音时长请不要超过60秒！")
+			var printName = get("printName").value;
+			console.log("开始注册……")
+			alert("注意！录音时长请不要低于10秒！")
 			$.ajax(
 			{
 				type: "POST",
 				url: "/speech",
+				data: "printNames=" + printName,
+				dataType: "json",
 				error: function(request) {
 					return;
 				},
@@ -346,40 +367,40 @@
 					});
 				},
 				success: function(res) {
+					printName = ''
 					//此处演示关闭
 					setTimeout(function(){
 					  layer.closeAll('loading');
 					}, 1000);	
 					return;		  			
 				}
-			})
+			});
 		}
 
-		function stopRecorder() {
-			$.ajax(
-			{
-				type: "POST",
-				url: "/stopSpeech",
-				error: function(request) {
-					return;
-				},
-				beforeSend: function(XMLHttpRequest) {
-					layer.msg('正在停止……!');
+		// function stopRecorder() {
+		// 	$.ajax(
+		// 	{
+		// 		type: "POST",
+		// 		url: "/stopSpeech",
+		// 		error: function(request) {
+		// 			return;
+		// 		},
+		// 		beforeSend: function(XMLHttpRequest) {
+		// 			layer.msg('正在停止……!');
 					
-				},
-				success: function(res) {
-					//此处演示关闭
-					setTimeout(function(){
-					  layer.closeAll('loading');
-					}, 1000);
-					layer.msg('录音结束!');
-				}
-			})
-		}
-
+		// 		},
+		// 		success: function(res) {
+		// 			//此处演示关闭
+		// 			setTimeout(function(){
+		// 			  layer.closeAll('loading');
+		// 			}, 1000);
+		// 			layer.msg('录音结束!');
+		// 		}
+		// 	})
+		// }
 
 		function recognizeSpeech() {
-			console.log("开始识别……")
+			alert("请录制语音5~10s左右！")
 			$.ajax(
 			{
 				type: "POST",
@@ -389,21 +410,24 @@
 					return;
 				},
 				beforeSend: function(XMLHttpRequest) {
-					layer.msg('正在识别中……', {
+					layer.msg('开始录音……', {
 					  icon: 16,
 					  shade: 0.01
 					});
 				},
 				success: function(res) {
-					$(".text-white").css('display','block');
-					$("#ASR-Reslut").css('display','block'); 
+					layer.msg('正在识别……', {
+					  icon: 16,
+					  shade: 0.01
+					});
+					// $(".text-white").css('display','block');
+					// $("#ASR-Reslut").css('display','block'); 
 					// var resId = document.getElementById("ASR-Reslut");
-					$("#ASR-Reslut").text(res)
+					// $("#ASR-Reslut").text(res)
 					// console.log(res)
+					$("#recogName").text( "识别成功！您是： " + res)
 				}
 			})
-
-
 		}
 	</script>
 
