@@ -19,8 +19,8 @@ else:
     from urllib2 import URLError
     from urllib import urlencode
 
-API_KEY = 'ZOOEHKRlsnWRZQoj3v94rcDd'
-SECRET_KEY = 'mjeFSrAYtMowCccxxZVVrlnjpGUKt01O'
+API_KEY = ''
+SECRET_KEY = ''
 
 Text = input("请输入您要合成的文字：")
 if Text == '':

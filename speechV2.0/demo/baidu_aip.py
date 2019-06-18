@@ -11,8 +11,8 @@ date: 2019/5/6
 def baiduAPI():
 	""" 你的 APPID AK SK """
 	APP_ID = '10372170'
-	API_KEY = 'ZOOEHKRlsnWRZQoj3v94rcDd'
-	SECRET_KEY = 'mjeFSrAYtMowCccxxZVVrlnjpGUKt01O'
+	API_KEY = ''
+	SECRET_KEY = ''
 
 	client = AipSpeech(APP_ID, API_KEY, SECRET_KEY)
 
