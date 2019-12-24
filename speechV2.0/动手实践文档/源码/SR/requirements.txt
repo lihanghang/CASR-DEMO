@@ -50,7 +50,7 @@ enum34==1.1.6
 et-xmlfile==1.0.1
 fastcache==1.0.2
 filelock==2.0.12
-Flask==0.12.2
+Flask==1.0
 Flask-Cors==3.0.3
 gast==0.2.2
 gensim==3.7.0
