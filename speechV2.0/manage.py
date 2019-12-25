@@ -41,8 +41,6 @@ def stopRecorder():
 @app.route("/recognize", methods=['GET', 'POST'])
 def recognize():
 	return speakerrecog.speakerRecog()
-	#return CASR_model.modelAPI()  # 自训模型
-	# return baidu_aip.baiduAPI() # baidu语音识别接口
 
 
 if __name__ == '__main__':
