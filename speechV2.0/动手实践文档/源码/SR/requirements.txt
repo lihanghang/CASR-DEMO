@@ -148,7 +148,7 @@ python-dateutil==2.6.1
 python-speech-features==0.6
 pytz==2017.2
 PyWavelets==0.5.2
-pywin32==221
+pywin32==301
 PyYAML==3.12
 pyzmq==16.0.2
 QtAwesome==0.4.4
