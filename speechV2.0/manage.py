@@ -4,7 +4,7 @@ from flask import Flask, render_template
 from flask import request
 import time
 
-from Speaker_Recognition import register, speakerrecog # 声纹识别库
+from SR import register, speakerrecog # 声纹识别库
 
 """
 启动web程序
